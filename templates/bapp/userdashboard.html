@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biswas - Your Billing Solution</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/userdashboard.css' %}"> <!-- Link to your custom CSS file -->
+</head>
+<body>
+
+  <!-- Marquee -->
+  <marquee behavior="" direction="" class="marquee">
+    <h3>Welcome To BISWAS Bill Box</h3>
+  </marquee>
+
+  <!-- Main Content -->
+  <div class="container mt-3">
+    <div class="jumbotron text-center">
+      <h1><span style="font-size: 1em;">Welcome, {{ name }}</span></h1>
+    </div>
+
+    <!-- Page Sections -->
+    <div class="row">
+      <!-- Billing Section -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-primary text-white shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title">Billing</h4>
+            <p class="card-text">Create invoices, view/edit invoices, manage invoice templates.</p>
+            <a href="/generate-invoice/{{mobile_no}}/">
+                <button type="submit" class="btn btn-light btn-sm">Go to Billing Page</button>
+            </a>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transactions Section -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-success text-white shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title">Transactions</h4>
+            <p class="card-text">Record transactions, view transactions, detailed transaction views.</p>
+            <a href="/transaction-details/{{mobile_no}}/">
+              <button type="submit" class="btn btn-light btn-sm">Go to Transactions Page</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reports Section -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-danger text-white shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title">Reports</h4>
+            <p class="card-text">Generate transaction reports, analysis reports, custom reports.</p>
+            <a href="/reports/{{mobile_no}}/">
+              <button type="submit" class="btn btn-light btn-sm">Go to Reports Page</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Customers Section -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-info text-white shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title">Customers</h4>
+            <p class="card-text">Manage customer information, view customer history.</p>
+            <a href="/customer-details/{{mobile_no}}/">
+              <button type="submit" class="btn btn-light btn-sm">Go to Customers Page</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products/Services Section -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-warning text-dark shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title">Products/Services</h4>
+            <p class="card-text">Manage product and service catalog, track stock (if applicable).</p>
+            <a href="/addproduct/{{mobile_no}}">
+              <button type="button" class="btn btn-light btn-sm">Go to Products Page</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Section -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-secondary text-white shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title">Help</h4>
+            <p class="card-text">Configure software settings, set user preferences.</p>
+            <a href="/help">
+              <button type="submit" class="btn btn-light btn-sm">Go to Help Page</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark text-center text-white">
+    <div class="container">
+      <h4>Contact Us</h4>
+      <p>Phone: 7478151545 | Email: koushik271999@gmail.com</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

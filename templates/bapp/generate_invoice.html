@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Invoice</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .input-group {
+            position: relative;
+        }
+        .input-group .form-control {
+            transition: all 0.3s ease-in-out;
+        }
+        .input-group .form-control:focus {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+        .add-product, .remove-product, .btn-primary {
+            transition: transform 0.2s ease-in-out;
+        }
+        .add-product:hover, .remove-product:hover, .btn-primary:hover {
+            transform: scale(1.05);
+        }
+        .form-title {
+            color: #007bff;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="form-container animate__animated animate__fadeInUp">
+            <h2 class="text-center form-title">Generate Invoice</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label for="customer_name" class="col-sm-2 col-form-label">Customer Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="customer_name" name="customer_name" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="customer_mobile_no" class="col-sm-2 col-form-label">Customer Mobile No</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="customer_mobile_no" name="customer_mobile_no" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="customer_address" class="col-sm-2 col-form-label">Customer Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="customer_address" name="customer_address" required>
+                    </div>
+                </div>
+
+                <div id="products">
+                    <div class="form-group row">
+                        <label for="product_name_0" class="col-sm-2 col-form-label">Product Name</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" id="product_name_0" name="product_name">
+                                {% for product in products %}
+                                <option value="{{ product.name }}">{{ product.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <label for="product_quantity_0" class="col-sm-2 col-form-label">Quantity</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control" id="product_quantity_0" name="product_quantity" required>
+                        </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="btn btn-success add-product">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12 text-center">
+                        <button type="submit" class="btn btn-primary">Generate Invoice</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let productIndex = 1;
+
+            document.querySelector('.add-product').addEventListener('click', function() {
+                const productTemplate = `
+                    <div class="form-group row animate__animated animate__fadeInUp" id="product_${productIndex}">
+                        <label for="product_name_${productIndex}" class="col-sm-2 col-form-label">Product Name</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" id="product_name_${productIndex}" name="product_name">
+                                {% for product in products %}
+                                <option value="{{ product.name }}">{{ product.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <label for="product_quantity_${productIndex}" class="col-sm-2 col-form-label">Quantity</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control" id="product_quantity_${productIndex}" name="product_quantity" required>
+                        </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="btn btn-danger remove-product" data-index="${productIndex}">Remove</button>
+                        </div>
+                    </div>`;
+                
+                document.querySelector('#products').insertAdjacentHTML('beforeend', productTemplate);
+                document.querySelector(`#product_${productIndex} .remove-product`).addEventListener('click', function() {
+                    document.querySelector(`#product_${this.getAttribute('data-index')}`).remove();
+                });
+
+                productIndex++;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #00F260, #0575E6);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+        .plot-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .plot-container img {
+            width: 100%;
+            height: auto;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .plot-container:hover img {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        .plot-title {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+        }
+        .row {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reports Dashboard</h1>
+        
+        <div class="row">
+            <div class="col-md-6 plot-container">
+                <div class="plot-title">Top 5 Selling Products (Last Month)</div>
+                <img src="data:image/png;base64,{{ top_selling_products_plot }}" alt="Top Selling Products">
+            </div>
+            <div class="col-md-6 plot-container">
+                <div class="plot-title">Top 5 Unsold High-Quantity Products</div>
+                <img src="data:image/png;base64,{{ unsold_products_plot }}" alt="Top 5 Unsold Products">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 plot-container">
+                <div class="plot-title">Daily Revenue (Last 5 Days)</div>
+                <img src="data:image/png;base64,{{ daily_revenue_plot }}" alt="Daily Revenue">
+            </div>
+            <div class="col-md-4 plot-container">
+                <div class="plot-title">Monthly Revenue (Last 5 Months)</div>
+                <img src="data:image/png;base64,{{ monthly_revenue_plot }}" alt="Monthly Revenue">
+            </div>
+            <div class="col-md-4 plot-container">
+                <div class="plot-title">Yearly Revenue (Last 5 Years)</div>
+                <img src="data:image/png;base64,{{ yearly_revenue_plot }}" alt="Yearly Revenue">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 plot-container">
+                <div class="plot-title">Top 5 Days with Lowest Sales (This Month)</div>
+                <img src="data:image/png;base64,{{ lowest_sales_days_plot }}" alt="Top 5 Days with Lowest Sales">
+            </div>
+            <div class="col-md-6 plot-container">
+                <div class="plot-title">Top 5 Products with Low Stock</div>
+                <img src="data:image/png;base64,{{ low_stock_products_plot }}" alt="Low Stock Products">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .error-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .error-container h1 {
+            font-size: 2em;
+            color: #dc3545; /* Bootstrap danger color */
+        }
+        .error-container p {
+            font-size: 1.2em;
+            color: #6c757d; /* Bootstrap secondary color */
+        }
+        .error-container .home-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff; /* Bootstrap primary color */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .error-container .home-button:hover {
+            background-color: #0056b3; /* Darker shade of primary color */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <h1>Something Went Wrong</h1>
+        <p>We are sorry for the inconvenience. Please try again later.</p>
+        <a href="/" class="home-button">Home Page</a>
+    </div>
+
+</body>
+</html>

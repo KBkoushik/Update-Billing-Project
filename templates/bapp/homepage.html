@@ -1,0 +1,31 @@
+{% include "bapp/header.html" %}
+    <!-- <a class="navbar-brand" href="#">Let's Go</a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <!-- <a class="nav-link" href="#features">Features</a> -->
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#signup">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#login">Log In</a>
+        </li> -->
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="jumbotron text-center">
+    <h1 class="display-4">BISWAS Bill Box</h1>
+    <p class="lead">Your Billing Solution</p>
+    <hr class="my-4">
+    <p>Manage your invoices, payments, and clients with ease.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'sign_in' %}" role="button" style="background-color: blue; box-shadow: 0 4px 6px rgba(0,0,0,0.1)">Let's Go</a>
+  </div>
+{% include "bapp/footer.html" %}
+
+

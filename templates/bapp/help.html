@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .btn-custom {
+            background-color: #ff6b6b;
+            color: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-custom:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .animated {
+            animation: fadeIn 2s;
+        }
+        .animated-button {
+            animation: fadeInUp 2s ease-in-out infinite alternate;
+        }
+        h1 {
+            animation: fadeIn 2s;
+            font-weight: bold;
+        }
+        p {
+            animation: fadeIn 3s;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container animated">
+        <h1 class="mb-4">Help & Support</h1>
+        <div class="card">
+            <p class="lead">We are here to help you with any issues or questions you may have about our services. Your satisfaction is our priority.</p>
+        </div>
+        <div class="card">
+            <p class="lead">For personalized features or suggestions, feel free to reach out to us. We value your feedback and strive to improve our services continuously.</p>
+        </div>
+        <div class="card">
+            <p class="lead">You can contact us directly through email. Click the button below to send us an email with your queries or suggestions.</p>
+        </div>
+        <a href="mailto:koushik271999@gmail.com" class="btn btn-custom btn-lg animated-button">Send Us an Email</a>
+        <div class="footer">
+            <p>Thank you for choosing our service. We are always here to assist you.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
