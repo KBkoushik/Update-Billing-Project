@@ -1,31 +1,106 @@
-{% include "bapp/header.html" %}
-    <!-- <a class="navbar-brand" href="#">Let's Go</a> -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <!-- <a class="nav-link" href="#features">Features</a> -->
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#signup">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#login">Log In</a>
-        </li> -->
-      </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BISWAS Bill Box</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+    <style>
+        /* Custom styles for more color and visual appeal */
+        .navbar {
+            background-color: #343a40;
+        }
+        .jumbotron {
+            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .marquee-container {
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"><marquee behavior="scroll" direction="left">Welcome to BISWAS Bill Box! Manage your invoices, payments, and clients with ease.</marquee></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <!-- Navigation items can be added here if needed -->
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <div class="jumbotron text-center animate__animated animate__fadeIn" data-aos="fade-up">
+        <h1 class="display-4">BISWAS Bill Box</h1>
+        <p class="lead">Your Billing Solution</p>
+        <hr class="my-4">
+        <p>Manage your invoices, payments, and clients with ease.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'sign_in' %}" role="button" style="box-shadow: 0 4px 6px rgba(0,0,0,0.1)">Let's Go</a>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <div class="jumbotron text-center">
-    <h1 class="display-4">BISWAS Bill Box</h1>
-    <p class="lead">Your Billing Solution</p>
-    <hr class="my-4">
-    <p>Manage your invoices, payments, and clients with ease.</p>
-    <a class="btn btn-primary btn-lg" href="{% url 'sign_in' %}" role="button" style="background-color: blue; box-shadow: 0 4px 6px rgba(0,0,0,0.1)">Let's Go</a>
-  </div>
-{% include "bapp/footer.html" %}
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Invoice Generation</h5>
+                        <p class="card-text">Create professional invoices in minutes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Client Management</h5>
+                        <p class="card-text">Keep track of your clients and their contact details.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Instant Data Insights</h5>
+                        <p class="card-text">View all important data at a glance with our instant data insights feature.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="footer">
+        <p>&copy; 2024 BISWAS Bill Box. All rights reserved.</p>
+    </div>
 
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

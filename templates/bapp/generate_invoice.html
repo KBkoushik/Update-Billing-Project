@@ -33,10 +33,10 @@
         .input-group .form-control:focus {
             box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
         }
-        .add-product, .remove-product, .btn-primary {
+        .add-product, .remove-product, .btn-primary, .btn-secondary {
             transition: transform 0.2s ease-in-out;
         }
-        .add-product:hover, .remove-product:hover, .btn-primary:hover {
+        .add-product:hover, .remove-product:hover, .btn-primary:hover, .btn-secondary:hover {
             transform: scale(1.05);
         }
         .form-title {
@@ -95,6 +95,7 @@
                 <div class="form-group row">
                     <div class="col-sm-12 text-center">
                         <button type="submit" class="btn btn-primary">Generate Invoice</button>
+                        <a href="/search-invoice/{{mob_no}}/" class="btn btn-secondary">Search Invoice</a>
                     </div>
                 </div>
             </form>

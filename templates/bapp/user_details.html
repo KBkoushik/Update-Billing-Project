@@ -9,45 +9,160 @@
     /* Custom CSS styles */
     body {
       background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      background-color: #343a40 !important; /* Dark background */
+    }
+    .navbar-brand {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .navbar-brand:hover {
+      color: #f8f9fa; /* Slightly off-white hover color */
     }
     .jumbotron {
-      background-color: #007bff;
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
       color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+      overflow: hidden; /* For animation purposes */
     }
-    .container {
-      margin-top: 50px;
+    .jumbotron h1 {
+      font-size: 3rem; /* Decreased font size */
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: slideDown 1s ease-in-out; /* Animation */
+    }
+    .jumbotron p {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      animation: slideUp 1s ease-in-out; /* Animation */
+    }
+    @keyframes slideDown {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes slideUp {
+      0% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
     .form-section {
-      background-color: #f8f9fa;
+      background-color: #fff;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       max-width: 600px; /* Set a maximum width */
       margin: auto; /* Center align */
     }
-    .centered-title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .form-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+    .feature-section {
+      background-color: #f0f8ff;
+      padding: 40px 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .feature-section h2 {
       color: #007bff; /* Bootstrap primary color */
+      margin-bottom: 20px;
+    }
+    .feature-section p {
+      font-size: 1.2rem;
+    }
+    .features {
+      margin-top: 50px;
+    }
+    .features h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+    .features .row {
+      justify-content: space-around;
+    }
+    .features .col-md-4 {
+      margin-bottom: 30px;
+    }
+    .feature-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    .feature-card h4 {
+      color: #007bff;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .feature-card p {
+      font-size: 1.2rem;
+    }
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .footer p {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+    .marquee-container {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.5rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <marquee behavior="" direction=""><h3 style="color: white;">Welcome To BISWAS Bill Box</h3></marquee>
-  </nav>
+    <div class="container">
+      <a class="navbar-brand" href="#">BISWAS Bill Box</a>
+      Uncomment to use marquee -->
+      <!-- <marquee behavior="scroll" direction=""><h3>Welcome To BISWAS Bill Box</h3></marquee> -->
+    <!-- </div>
+  </nav> -->
 
   <!-- Hero Section -->
-  <div class="centered-title">
-    <h1>Register in BISWAS Bill Box</h1>
+  <div class="jumbotron">
+    <h1 class="display-4">Register</h1>
+    <p class="lead">Your billing solution simplified.</p>
   </div>
 
   <!-- Form Section -->
   <div class="container">
     <div class="form-section">
+      <h2>Register Form</h2>
       <form method="post">
         {% csrf_token %}
 
@@ -78,25 +193,36 @@
   </div>
 
   <!-- Features Section -->
-  <div id="features" class="container mt-5">
+  <div id="features" class="container features">
     <h2 class="text-center mb-4">Key Features</h2>
     <div class="row">
       <div class="col-md-4">
-        <h4>Invoice Generation</h4>
-        <p>Create professional invoices in minutes.</p>
+        <div class="feature-card">
+          <h4>Invoice Generation</h4>
+          <p>Create professional invoices in minutes.</p>
+        </div>
       </div>
       <div class="col-md-4">
-        <h4>Client Management</h4>
-        <p>Keep track of your clients and their contact details.</p>
+        <div class="feature-card">
+          <h4>Client Management</h4>
+          <p>Keep track of your clients and their contact details.</p>
+        </div>
       </div>
       <div class="col-md-4">
-        <h4>Payment Tracking</h4>
-        <p>Monitor payments and track outstanding balances.</p>
+        <div class="feature-card">
+          <h4>Payment Tracking</h4>
+          <p>Monitor payments and track outstanding balances.</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Bootstrap JS and jQuery -->
+  <!-- Footer Section -->
+  <div class="footer">
+    <p>&copy; 2024 BISWAS Bill Box. All rights reserved.</p>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

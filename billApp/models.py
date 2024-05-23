@@ -28,7 +28,7 @@ class BillDetails(models.Model):
 
 class InvoiceProductDetails(models.Model):
     user = models.ForeignKey(UserDetails, on_delete=models.CASCADE)
-    bill_number = models.ForeignKey(BillDetails, on_delete=models.CASCADE)
+    bill_number = models.CharField(max_length=6)
     date = models.DateField()
     product_name = models.CharField(max_length=100)
     product_description = models.TextField()

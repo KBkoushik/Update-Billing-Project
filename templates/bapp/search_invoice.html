@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Invoice</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .input-group {
+            position: relative;
+        }
+        .input-group .form-control {
+            transition: all 0.3s ease-in-out;
+        }
+        .input-group .form-control:focus {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+        .btn-primary {
+            transition: transform 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+        .form-title {
+            color: #007bff;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="form-container animate__animated animate__fadeInUp">
+            <h2 class="text-center form-title">Search Invoice</h2>
+            <form method="get">
+                <!-- <div class="form-group row">
+                    <label for="mob_no" class="col-sm-2 col-form-label">Mobile No</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="mob_no" name="mob_no" required>
+                    </div>
+                </div> -->
+                <div class="form-group row">
+                    <label for="invoice_no" class="col-sm-2 col-form-label">Invoice No</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="invoice_no" name="invoice_no" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 text-center">
+                        <a href="/invoice/{{user_id}}/{{invoice_no}}/">
+                            <button type="submit" class="btn btn-primary">Search Invoice</button>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

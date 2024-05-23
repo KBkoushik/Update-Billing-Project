@@ -20,16 +20,19 @@ from billApp import views
 from billApp import reports
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("invoice/", views.invoice_view),
+    
     path("", views.hompageView),
     path("report/", views.plot_view),
     path("sign-in/", views.sign_in_page_view, name='sign_in'),
     path("welcome/", views.sign_in_view, name='process_email'),
     path("userdetails/", views.input_user_details_view, name='user_address'),
     path("addproduct/<str:string1>/", views.add_product_view, name='user_products'),
+    path('view_all_products/<str:string1>/', views.view_all_products, name='view_all_products'),
     path('generate-invoice/<str:mob_no>/', views.generate_invoice_view, name='generate_invoice'),
+    path('invoice/<str:mob_no>/<str:invoice_no>/', views.genarateInvoice, name='invoice'),
     path('customer-details/<str:mob_no>/', views.customer_details_view, name='customer_details'),
     path('transaction-details/<str:mob_no>/', views.transaction_details_view, name='transaction_details'),
     path('reports/<str:user_id>/', reports.reports_view, name='reports_view'),
     path("help/", views.help_view, name='help_page'),
+    path('search-invoice/<str:user_id>/', views.search_invoice_view, name='search_invoice'),
 ]

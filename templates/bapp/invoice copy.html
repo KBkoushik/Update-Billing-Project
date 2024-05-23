@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/invoice.css' %}">
+    <title>Invoice</title>
+</head>
+<body>
+<div class="page-content container">
+    <div class="page-header text-blue-d2">
+        <h1 class="page-title text-secondary-d1">
+            Invoice
+            <small class="page-info">
+                <i class="fa fa-angle-double-right text-80"></i>
+                ID: {{bill_number}}
+            </small>
+        </h1>
+
+        <div class="page-tools">
+            <div class="action-buttons">
+                <a class="btn bg-white btn-light mx-1px text-95" href="#" id="printButton" data-title="Print">
+                    <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
+                    Print
+                </a>
+                <a class="btn bg-white btn-light mx-1px text-95" href="#" id="pdfButton" data-title="PDF">
+                    <i class="mr-1 fa fa-file-pdf-o text-danger-m1 text-120 w-2"></i>
+                    Export
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container px-0">
+        <div class="row mt-4">
+            <div class="col-12 col-lg-12">
+                <div class="row">
+                    <div class="col-12 text-center text-150">
+                        <i class="fa fa-book fa-2x text-success-m2 mr-1"></i>
+                        <span class="text-default-d3">{{user_company_name}}</span>
+                        <div style="font-size: 0.8em; margin-top: 0.5em;">
+                            {{user_company_address}}, {{user_mob_no}}
+                        </div>
+                    </div>
+                </div>
+                <!-- .row -->
+
+                <hr class="row brc-default-l1 mx-n1 mb-4" />
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div>
+                            <span class="text-sm text-grey-m2 align-middle">To:</span>
+                            <span class="text-600 text-110 text-blue align-middle">{{customer_name}}</span>
+                        </div>
+                        <div class="text-grey-m2">
+                            <div class="my-1">
+                                {{customer_address}}
+                            </div>
+                            <div class="my-1">
+                                
+                            </div>
+                            <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> <b class="text-600">{{customer_mobile_no}}</b></div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
+                        <hr class="d-sm-none" />
+                        <div class="text-grey-m2">
+                            <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
+                                Invoice
+                            </div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">ID:</span> {{bill_number}}</div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Issue Date:</span> {{invoice_date}}</div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Time:</span> {{invoice_time}} <span class="badge badge-warning badge-pill px-25">paid</span></div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+                <div class="mt-4">
+                    <div class="row text-600 text-white bgc-default-tp1 py-25">
+                        <div class="d-none d-sm-block col-1">#</div>
+                        <div class="col-9 col-sm-5">Description</div>
+                        <div class="d-none d-sm-block col-4 col-sm-2">Qty</div>
+                        <div class="d-none d-sm-block col-sm-2">Unit Price</div>
+                        <div class="col-2">Amount</div>
+                    </div>
+
+                    <div class="text-95 text-secondary-d3">
+                        {% for product_name, product_desc, product_qty, unit_price, amount in invoice_items %}
+                            <div class="row mb-2 mb-sm-0 py-25">
+                                <div class="d-none d-sm-block col-1">{{forloop.counter}}</div>
+                                <div class="col-9 col-sm-5">{{product_name}}:  {{product_desc}}</div>
+                                <div class="d-none d-sm-block col-2">{{product_qty}}</div>
+                                <div class="d-none d-sm-block col-2 text-95">{{unit_price}}</div>
+                                <div class="col-2 text-secondary-d2">{{amount}}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="row border-b-2 brc-default-l2"></div>
+
+                    <div class="row mt-3">
+                        <div class="col-12 col-sm-7 text-grey-d2 text-95 mt-2 mt-lg-0">
+                            Extra note such as company or payment information...
+                        </div>
+
+                        <div class="col-12 col-sm-5 text-grey text-90 order-first order-sm-last">
+                            <div class="row my-2">
+                                <div class="col-7 text-right">
+                                    Total
+                                </div>
+                                <div class="col-5">
+                                    <span class="text-120 text-secondary-d1">{{total_amount}}</span>
+                                </div>
+                            </div>
+
+                            <div class="row my-2">
+                                <div class="col-7 text-right">
+                                    GST (18%)
+                                </div>
+                                <div class="col-5">
+                                    <span class="text-110 text-secondary-d1">{{tax_amount}}</span>
+                                </div>
+                            </div>
+
+                            <div class="row my-2 align-items-center bgc-primary-l3 p-2">
+                                <div class="col-7 text-right">
+                                    Total Amount
+                                </div>
+                                <div class="col-5">
+                                    <span class="text-150 text-success-d3 opacity-2">{{final_amount}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div>
+                        <span class="text-secondary-d1 text-105">Thank you for your business with @{{user_company_name}}</span>
+                        <!-- <a href="#" class="btn btn-info btn-bold px-4 float-right mt-3 mt-lg-0">Pay Now</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script>
+    document.getElementById('printButton').addEventListener('click', function () {
+        window.print();
+    });
+
+    document.getElementById('pdfButton').addEventListener('click', function () {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.html(document.body, {
+            callback: function (doc) {
+                doc.save('invoice.pdf');
+            },
+            x: 10,
+            y: 10
+        });
+    });
+</script>
+</body>
+</html>
